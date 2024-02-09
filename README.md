@@ -19,7 +19,7 @@ for now it works only over ubuntu/debian based systems
 
 ## Installation
 ```bash
-curl -Ssl https://raw.githubusercontent.com/iagomussel/sshsync/main/install.sh | bash
+curl -Ssl https://raw.githubusercontent.com/iagomussel/sshsync/main/install.sh | sudo bash
 ```
 
 ## Usage
