@@ -7,6 +7,7 @@ LOG_FILE="/var/log/sync_script.log"
 log() {
   local log_message="$1"
   echo "$(date +"%Y-%m-%d %T") - $log_message" >> "$LOG_FILE"
+  echo "$log_message";
 }
 
 # Check if required arguments are provided

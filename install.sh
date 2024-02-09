@@ -11,10 +11,13 @@ curl -o $SYNC_SCRIPT https://raw.githubusercontent.com/iagomussel/sshsync/main/s
 # Define the log file and its destination
 LOG_FILE="/var/log/sync_script.log"
 
+chmod 777 $LOG_FILE
+
 # Function for logging
 log() {
   local log_message="$1"
   echo "$(date +"%Y-%m-%d %T") - $log_message" >> "$LOG_FILE"
+  echo "$log_message";
 }
 
 install_sync_script() {
