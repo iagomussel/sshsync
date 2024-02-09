@@ -25,7 +25,7 @@ EVENTS="CREATE,DELETE,MODIFY,MOVED_FROM,MOVED_TO"
 
 # Function to perform the synchronization
 sync_files() {
-  rsync --update -alvzr "$ORIGIN_FOLDER"/* "$SSH_SERVER":"$TARGET_FOLDER" >> "$LOG_FILE" 2>&1
+  rsync --update -alvzr "$ORIGIN_FOLDER"/* "$SSH_SERVER":"$TARGET_FOLDER" | log
   if [ $? -eq 0 ]; then
     log "Sync was successful"
   else
@@ -35,7 +35,7 @@ sync_files() {
 
 # Function to watch for file system events
 watch_folder() {
-  inotifywait -e "$EVENTS" -m -r --format '%:e %f' "$ORIGIN_FOLDER" >> "$LOG_FILE" 2>&1
+  inotifywait -e "$EVENTS" -m -r --format '%:e %f' "$ORIGIN_FOLDER" | log
 }
 
 # Continuously watch for events and sync files
